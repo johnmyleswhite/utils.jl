@@ -16,13 +16,30 @@ function range(x)
   [min(x), max(x)]
 end
 
-function head(x)
-  x[1:5, :]
+function head(x::Array, n)
+  n == () ? 6 : n # n defined?
+
+  m = size(x,1)
+
+  if m <= n 
+      return(x)
+  end
+
+  x[1:n, :]
 end
 
-function tail(x)
-  m = size(x, 1)
-  x[(m - 4):m, :]
+function tail(x::Array, n)
+  n == () ? 6 : n # n defined?
+  n -= 1
+
+  m = size(x,1)
+
+  if m <= n
+      return(x)
+  end
+
+  x[(m - n):m, :]
+
 end
 
 function is_nan(x)
