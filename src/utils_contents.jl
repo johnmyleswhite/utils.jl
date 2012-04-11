@@ -16,9 +16,15 @@ function range(x)
   [min(x), max(x)]
 end
 
-function head(x::Array, n)
-  n == () ? 6 : n # n defined?
+function head(x::Array)
+    head(x,6)
+end
 
+function tail(x::Array)
+    tail(x,6)
+end
+
+function head(x::Array, n)
   m = size(x,1)
 
   if m <= n 
@@ -29,7 +35,6 @@ function head(x::Array, n)
 end
 
 function tail(x::Array, n)
-  n == () ? 6 : n # n defined?
   n -= 1
 
   m = size(x,1)
