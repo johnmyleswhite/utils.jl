@@ -31,3 +31,9 @@ load("src/utils.jl")
 
 @assert all_equal([1, 2], [1, 2])
 @assert ! all_equal([1, 2], [1, 3])
+
+@assert abs(norm(distance(eye(3), 1) - 2 * (ones(3, 3) - eye(3, 3))) - 0) < 10e-8
+
+@assert abs(norm(distance(eye(3), 2) - sqrt(2) * (ones(3, 3) - eye(3, 3))) - 0) < 10e-8
+
+@assert abs(norm(distance(eye(3)) - sqrt(2) * (ones(3, 3) - eye(3, 3))) - 0) < 10e-8

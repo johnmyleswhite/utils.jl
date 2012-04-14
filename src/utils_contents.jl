@@ -95,3 +95,21 @@ end
 function norm(x::Number)
   abs(x)
 end
+
+# Calculate distance between points in L_p norm.
+function distance(x, p::Int)
+  n = size(x, 1)
+  results = Array(Float64, n, n)
+  for i = 1:n
+    for j = 1:i
+      d = norm(x[i, :] - x[j, :], p)
+      results[i, j] = d
+      results[j, i] = d
+    end
+  end
+  results
+end
+
+function distance(x)
+  distance(x, 2)
+end
