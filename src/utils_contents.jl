@@ -17,34 +17,31 @@ function range(x)
 end
 
 function head(x::Array)
-    head(x,6)
+    head(x, 6)
 end
 
 function tail(x::Array)
-    tail(x,6)
+    tail(x, 6)
 end
 
-function head(x::Array, n)
+function head(x::Array, n::Int)
   m = size(x,1)
-
+  
   if m <= n 
-      return(x)
+    x
+  else
+    x[1:n, :]
   end
-
-  x[1:n, :]
 end
 
-function tail(x::Array, n)
-  n -= 1
-
-  m = size(x,1)
-
+function tail(x::Array, n::Int)
+  m = size(x, 1)
+  
   if m <= n
-      return(x)
+    x
+  else
+    x[(m - n + 1):m, :]
   end
-
-  x[(m - n):m, :]
-
 end
 
 function is_nan(x)
