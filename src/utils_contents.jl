@@ -72,3 +72,7 @@ end
 function all_equal(a, b)
   all(a == b)
 end
+
+function norm(x::Number)
+  abs(x)
+end
